@@ -1,0 +1,24 @@
+const data : {
+  main: [
+    {
+      name: "Now Playing",
+      url: "/now_playing",
+      icon: IconBadgeHd,
+    },
+    {
+      name: "Popular",
+      url: "popular",
+      icon: IconBrandNetflix,
+    },
+    {
+      name: "Top Rated",
+      url: "top_rated",
+      icon: IconHeartStar,
+    },
+    {
+      name: "Upcoming",
+      url: "upcoming",
+      icon: IconClockPause,
+    },
+  ],
+}
