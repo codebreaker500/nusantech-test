@@ -35,7 +35,13 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build Docker image
-      run: docker build -t ${{ secrets.DOCKER_USERNAME }}/nusantech-movie-test:${{ steps.tag.outputs.tag }} .
+      run: |
+        docker build \
+          --build-arg VITE_TMDB_API_KEY=${{ secrets.KEY }} \
+          --build-arg VITE_TMDB_BASE_URL=${{ secrets.VITE_TMDB_BASE_URL }} \
+          --build-arg VITE_TMDB_IMAGE_URL=${{ secrets.VITE_TMDB_IMAGE_URL }} \
+          --build-arg VITE_IMAGE_PLACEHOLDER=${{ secrets.VITE_IMAGE_PLACEHOLDER }} \
+          -t ${{ secrets.DOCKER_USERNAME }}/nusantech-movie-test:${{ steps.tag.outputs.tag }} .
 
     - name: Push Docker image
       run: docker push ${{ secrets.DOCKER_USERNAME }}/nusantech-movie-test:${{ steps.tag.outputs.tag }}
