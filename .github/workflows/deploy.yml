@@ -61,7 +61,7 @@ jobs:
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         source: "nginx/d.conf"
-        target: "/etc/nginx/movie"
+        target: "/home/ubuntu/app/nginx/movie/"
 
     - name: Restart Nginx
       uses: appleboy/ssh-action@v1
@@ -70,4 +70,5 @@ jobs:
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
+          sudo mv /home/ubuntu/app/nginx/movie/d.conf /etc/nginx/movie/d.conf
           sudo nginx -t && sudo systemctl reload nginx
