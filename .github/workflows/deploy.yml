@@ -48,11 +48,11 @@ jobs:
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-          docker pull ${{ secrets.DOCKER_USERNAME }}/nusantech-movie-test:${{ steps.tag.outputs.tag }}
-          docker stop nusantech-movie-test || true
-          docker rm nusantech-movie-test || true
-          docker run -d --name nusantech-movie-test -p 3003:3000 ${{ secrets.DOCKER_USERNAME }}/nusantech-movie-test:${{ steps.tag.outputs.tag }}
+          sudo docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+          sudo docker pull ${{ secrets.DOCKER_USERNAME }}/nusantech-movie-test:${{ steps.tag.outputs.tag }}
+          sudo docker stop nusantech-movie-test || true
+          sudo docker rm nusantech-movie-test || true
+          sudo docker run -d --name nusantech-movie-test -p 3003:3000 ${{ secrets.DOCKER_USERNAME }}/nusantech-movie-test:${{ steps.tag.outputs.tag }}
 
     - name: Copy Nginx configuration
       uses: appleboy/scp-action@v1
