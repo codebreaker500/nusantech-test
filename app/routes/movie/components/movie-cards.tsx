@@ -83,8 +83,8 @@ export function MovieCards({ initialList, search, limit }: { initialList: NowPla
               <ImageView
                   path={movie.poster_path}
                   baseSize="/w500"
-                  width={200}
-                  height={300}
+                  width={2}
+                  height={3}
                   className="rounded-t-lg"
                 />
               <div className="flex flex-col justify-between flex-1">

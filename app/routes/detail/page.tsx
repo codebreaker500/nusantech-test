@@ -57,7 +57,7 @@ export default function Detail({ loaderData }: Route.ComponentProps) {
             baseSize="/w1920_and_h1080_multi_faces"
             width={1920}
             height={1080}
-            className="absolute inset-0"
+            className="absolute inset-0 w-full h-full"
           />
           <div className="relative z-10 flex items-end h-full px-4 py-8 bg-gradient-to-t from-black md:px-6">
             <h1 className="text-4xl font-bold text-white sm:text-5xl md:text-6xl">{title}</h1>
